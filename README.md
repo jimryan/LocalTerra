@@ -1,6 +1,6 @@
 <p>&nbsp;</p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/terra-project/LocalTerra/master/img/localterra_logo_with_name.svg" width=500>
+<img src="https://raw.githubusercontent.com/terra-project/Terrarium/master/img/Terrarium_logo.svg" width=500>
 </p>
 
 <p align="center">
@@ -9,13 +9,13 @@ Instant, zero-config Terra blockchain and ecosystem.
 
 <br/>
 
-## What is LocalTerra?
+## What is Terrarium?
 
-LocalTerra is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file, designed to make it easy for smart contract developers to test out their contracts on a sandboxed environment before moving to a live testnet or mainnet.
+Terrarium is a complete Terra testnet and ecosystem containerized with Docker and orchestrated with a simple `docker-compose` file, designed to make it easy for smart contract developers to test out their contracts on a sandboxed environment before moving to a live testnet or mainnet.
 
-LocalTerra comes pre-configured with opinionated, sensible defaults for a standard testing environment. If other projects mention testing on LocalTerra, they are referring to the settings defined in this repo.
+Terrarium comes pre-configured with opinionated, sensible defaults for a standard testing environment. If other projects mention testing on Terrarium, they are referring to the settings defined in this repo.
 
-The advantages of LocalTerra over a public testnet are that:
+The advantages of Terrarium over a public testnet are that:
 
 - world state is easily modifiable
 - quick to reset for quick iterations
@@ -31,11 +31,11 @@ The advantages of LocalTerra over a public testnet are that:
 ## Usage
 
 ```sh
-$ git clone https://www.github.com/terra-project/LocalTerra
-$ cd LocalTerra
+$ git clone https://www.github.com/terra-project/Terrarium
+$ cd Terrarium
 ```
 
-Make sure your Docker daemon is running in the background and `docker-compose` is installed. Then start LocalTerra:
+Make sure your Docker daemon is running in the background and `docker-compose` is installed. Then start Terrarium:
 
 ```sh
 $ docker-compose up
@@ -48,7 +48,7 @@ You should now have an environment with the following:
 - [FCD](http://www.github.com/terra-project/fcd) running on http://localhost:3060
 - an oracle feeder feeding live prices from mainnet, trailing by 1 vote period
 
-If you need to turn off LocalTerra:
+If you need to turn off Terrarium:
 
 ```sh
 $ docker-compose down
@@ -60,17 +60,17 @@ To reset the world state, issue the following:
 $ docker-compose rm
 ```
 
-## LocalTerra and...
+## Terrarium and...
 
 ### Terra Station
 
-Terra Station has built-in support for LocalTerra, which enables you to interact with your LocalTerra. Open up station and switch to the `Localterra` network:
+Terra Station has built-in support for Terrarium, which enables you to interact with your Terrarium. Open up station and switch to the `Terrarium` network:
 
-![station_localterra](./img/station-localterra.png)
+![station_Terrarium](./img/station-Terrarium.png)
 
 ### terracli
 
-Make sure you have the same version of `terracli` installed as LocalTerra. Then, you can use `terracli` to talk to your LocalTerra `terrad` node:
+Make sure you have the same version of `terracli` installed as Terrarium. Then, you can use `terracli` to talk to your Terrarium `terrad` node:
 
 ```sh
 $ terracli status
@@ -82,7 +82,7 @@ This automatically works because `terracli` connects to `localhost:26657` by def
 $ terracli status --node=tcp://localhost:26657
 ```
 
-You should now be able to issue normal commands with `terracli` against your LocalTerra network:
+You should now be able to issue normal commands with `terracli` against your Terrarium network:
 
 ```sh
 $ terracli query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
@@ -90,29 +90,29 @@ $ terracli query account terra1dcegyrekltswvyy0xy69ydgxn9x8x32zdtapd8
 
 ### Jigu
 
-You can connect to the chain through LocalTerra's LCD server.
+You can connect to the chain through Terrarium's LCD server.
 
 ```python
 from jigu import Terra
-terra = Terra("localterra", "http://localhost:1317")
+terra = Terra("Terrarium", "http://localhost:1317")
 ```
 
 ### Terra.js
 
-You can connect to the chain using `LCDClient` against LocalTerra's LCD server.
+You can connect to the chain using `LCDClient` against Terrarium's LCD server.
 
 ```ts
 import { LCDClient } from "@terra-money/terra.js";
 
 const terra = new LCDClient({
   URL: "http://localhost:1317",
-  chainId: "localterra",
+  chainId: "Terrarium",
 });
 ```
 
-## Configuring LocalTerra
+## Configuring Terrarium
 
-Since the majority of LocalTerra is implemented through a `docker-compose.yml` file, it is easily customizable and can be considered a starting template point for setting up your own local Terra testnet with Docker containers. Out-of-the-box, LocalTerra comes preconfigured with opinionated settings such as:
+Since the majority of Terrarium is implemented through a `docker-compose.yml` file, it is easily customizable and can be considered a starting template point for setting up your own local Terra testnet with Docker containers. Out-of-the-box, Terrarium comes preconfigured with opinionated settings such as:
 
 - ports defined for RPC (26657), LCD (1317) and FCD (3060)
 - standard [accounts](#accounts) (shown below)
@@ -123,11 +123,11 @@ You can modify the node configuration of your validator in `config/config.toml` 
 
 ### Modifying Genesis
 
-If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your LocalTerra network.
+If you need to change the `genesis.json` file, you can alter it in `config/genesis.json`. This will get loaded when you reset your Terrarium network.
 
 ## Accounts
 
-LocalTerra is pre-configured with one validator and 10 accounts with LUNA balances.
+Terrarium is pre-configured with one validator and 10 accounts with LUNA balances.
 
 | Account   | Address                                                                                                  | Mnemonic                                                                                                                                                                   |
 | --------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
